@@ -43,11 +43,11 @@ frappe.ui.form.on('Purchase Receipt Item', {
         frappe.call({
           method: 'aumms.aumms.utils.get_board_rate',
           args: {
-            item_code: child.item_code,
             item_type: child.item_type,
+            purity: child.purity,
+            stock_uom: child.stock_uom,
             date: frm.doc.posting_date,
-            time: frm.doc.posting_time,
-            purity: child.purity
+            time: frm.doc.posting_time
           },
           callback: function (r) {
             if (r.message) {
